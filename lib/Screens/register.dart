@@ -51,63 +51,68 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-        child: Center(
-          child: Column(children: [
-            const SizedBox(height: 100),
-            const Icon(Icons.lock, size: 120),
-            const SizedBox(height: 50),
-            const Text('Register',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: MyTextField(
-                  controller: emailController,
-                  hintText: 'E-mail',
-                  ObscureText: false),
-            ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: MyTextField(
-                  controller: passwordController,
-                  hintText: 'Password',
-                  ObscureText: true),
-            ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: MyTextField(
-                  controller: cnfPasswordcontroller,
-                  hintText: 'Confirm Password',
-                  ObscureText: true),
-            ),
-            const SizedBox(height: 30),
-            MyButton(onTap: signUP, text: 'Register'),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Already have an account?',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                TextButton(
-                  onPressed: widget.onTap,
-                  child: const Text(
-                    'Sign In',
+        child: Container(
+          decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [Color(0xFFA0B5EB),Color(0xFFC9F0E4)])
+        ),
+          child: Center(
+            child: Column(children: [
+              const SizedBox(height: 100),
+              const Icon(Icons.lock, size: 120),
+              const SizedBox(height: 50),
+              const Text('Register',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: MyTextField(
+                    controller: emailController,
+                    hintText: 'E-mail',
+                    ObscureText: false),
+              ),
+              const SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: MyTextField(
+                    controller: passwordController,
+                    hintText: 'Password',
+                    ObscureText: true),
+              ),
+              const SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: MyTextField(
+                    controller: cnfPasswordcontroller,
+                    hintText: 'Confirm Password',
+                    ObscureText: true),
+              ),
+              const SizedBox(height: 30),
+              MyButton(onTap: signUP, text: 'Register'),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Already have an account?',
                     style: TextStyle(
                       fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ]),
+                  TextButton(
+                    onPressed: widget.onTap,
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ]),
+          ),
         ),
       ),
     );

@@ -23,9 +23,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFF81B1FA),
+        elevation: 0,
+        centerTitle: true,
+        title:const Text('ChatMate',
+          style: TextStyle(
+            fontFamily: 'Times New Roman',
+            letterSpacing: 2,
+            fontStyle: FontStyle.italic
+          ),
+        ),
         actions: [IconButton(onPressed: signOut, icon: Icon(Icons.logout))],
       ),
-      body: _buildUserList(),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [Color(0xFFA0B5EB),Color(0xFFC9F0E4)])
+        ),
+        child: _buildUserList()
+      ),
     );
   }
 
@@ -36,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.hasError) {
           return const Text('Error Fetching Data');
         } else if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: Text('Loading....'),);
+          return const Center(child: Text('Loading....'),);
         }
         return ListView(
           children: snapshot.data!.docs

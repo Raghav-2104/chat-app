@@ -50,22 +50,20 @@ class _ChatPageState extends State<ChatPage> {
 
   
   Widget _buildMessageList() {
-    return Expanded(
-      child: StreamBuilder(
-        stream: _chatService.getMessages(
-            widget.receiverUserID, _auth.currentUser!.uid),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Text('Error ${snapshot.error}');
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text('Loading');
-          }
-          return ListView(
-            children: snapshot.data!.docs.map((document) =>_buildMessageListItem(document)).toList(),
-          );
-        },
-      ),
+    return StreamBuilder(
+      stream: _chatService.getMessages(
+          widget.receiverUserID, _auth.currentUser!.uid),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return Text('Error ${snapshot.error}');
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Text('Loading');
+        }
+        return ListView(
+          children: snapshot.data!.docs.map((document) =>_buildMessageListItem(document)).toList(),
+        );
+      },
     );
   }
 
@@ -81,7 +79,7 @@ class _ChatPageState extends State<ChatPage> {
         child: Column(
           crossAxisAlignment:data['senderId'] == _auth.currentUser!.uid?CrossAxisAlignment.end:CrossAxisAlignment.start,
           children: [
-            Text(data['senderEmail']),
+            Text(data['senderEmail'],style: TextStyle(color: Colors.grey[800]),),
             const SizedBox(height: 5,),
             Container(
               padding: const EdgeInsets.all(12),
@@ -89,7 +87,7 @@ class _ChatPageState extends State<ChatPage> {
                 color: (data['senderId'] == _auth.currentUser!.uid)?Colors.green:Colors.blue,
                 borderRadius: BorderRadius.circular(8)
               ),
-              child: Text(data['message']),
+              child: Text(data['message'],style: const TextStyle(color: Colors.white,fontSize: 15)),
             )
           ],
         ),
