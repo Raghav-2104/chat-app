@@ -9,13 +9,13 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size(150, 50),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        backgroundColor: Colors.black,
-      ),
+      // style: ElevatedButton.styleFrom(
+      //   minimumSize: const Size(150, 50),
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(30),
+      //   ),
+      //   backgroundColor: Colors.black,
+      // ),
       child:Text(
         text,
         style: const TextStyle(fontSize: 20),
